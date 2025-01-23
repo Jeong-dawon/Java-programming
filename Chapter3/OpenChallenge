@@ -1,0 +1,59 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class OpenChallenge {
+	
+	public void equals(String s) {
+		
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		
+		
+		while(true) {
+			Random r = new Random();
+			int k = r.nextInt(100); // 0~99까지의 임의의 정수 생성 
+			
+			int start = 0; 
+			int end = 99;
+			int count = 1;
+			
+			System.out.println("수를 결정하였습니다. 맞추어 보세요.");
+						
+			while(true) {
+				System.out.println(start + "~" + end);
+				System.out.print(count + ">>");
+				
+				int num = scanner.nextInt();
+				
+				if(num < 0 || num > 99) { // 숫자 범위 오류 지적
+					System.out.println("0~99 사이의 숫자를 입력하세요.");
+				}
+				
+				if(num > k) { // 
+					System.out.println("더 낮게");
+					end = num;
+					count++;
+				}
+				else if(num < k) {
+					System.out.println("더 높게");
+					start = num;
+					count++;
+				}
+				else {
+					System.out.println("맞았습니다.");
+					break;
+				}
+			}
+						
+			System.out.print("다시 하시겠습니까(y/n)>> ");
+			String text = scanner.next();
+			if(text.equals("y")) continue;
+			else break;
+			
+		}
+			
+	}
+}
